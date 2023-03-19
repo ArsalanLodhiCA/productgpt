@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>OpenAI Quickstart</title>
+  <title>Product GPT</title>
   <link
     rel="shortcut icon"
     href="{{ url_for('static', filename='dog.png') }}"
@@ -10,12 +10,24 @@
 
 <body>
   <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
+  <h3>Product Generator</h3>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
+    <input type="text" name="product" placeholder="Enter the market for product ideas" required />
+    <input type="submit" value="Generate ideas" />
   </form>
+<!--  {% if result %} 
+      <div class="result">{{ result }}</div>
+      {% endif %}
+-->
+
   {% if result %}
-  <div class="result">{{ result }}</div>
-  {% endif %}
+<div class="result">
+  <ol>
+    {% for item in result %}
+    <li>{{ item }}</li>
+    {% endfor %}
+  </ol>
+</div>
+{% endif %}
+
 </body>
