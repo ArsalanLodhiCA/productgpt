@@ -15,19 +15,25 @@
     <input type="text" name="product" placeholder="Enter the market for product ideas" required />
     <input type="submit" value="Generate ideas" />
   </form>
-<!--  {% if result %} 
+ 
+ <!-- 
+  {% if result %} 
       <div class="result">{{ result }}</div>
-      {% endif %}
--->
+  {% endif %}
+ -->
 
-  {% if result %}
+
+{% if result %}
 <div class="result">
-  <ol>
-    {% for item in result %}
-    <li>{{ item }}</li>
+  <ul>
+    {% for line in result %}
+    <li>{{ line }}</li>
     {% endfor %}
-  </ol>
+  </ul>
 </div>
 {% endif %}
+
+
+
 
 </body>

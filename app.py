@@ -16,26 +16,22 @@ def index():
             model="text-davinci-003",
             prompt=product, #prompt=generate_prompt(product),
             temperature=0.6,
-            max_tokens=150,
+            max_tokens=500,
             top_p=1,
             frequency_penalty=1,
             presence_penalty=1
         )
-        response_text = response.choices[0].text
-        lines = re.split("\d+\. ", response_text)
+        response_text = response.choices[0].text.strip()
+        response_list = response_text.split('\n')
+        #response_list = response_text.split("''")
+        #response_text = response.choices[0].text
+        #lines = re.split("\d+\. ", response_list)[1:]
+        #response_list = [f"{i}. {item.strip()}" for i, item in enumerate(lines, start=1)]
+        return render_template("index.html", result=response_list)
         
-        # Split the result string into a list of lines
-        lines = lines.splitlines()
-
-        # Use a list comprehension to strip leading whitespace from each line
-        stripped_lines = [line.lstrip() for line in lines]
-
-        # Join the stripped lines back together into a single string
-        lines = '\n'.join(stripped_lines)
-
+       
         # lines.remove('')
         # return redirect(url_for("index", result=lines))
-        return render_template("index.html", result=lines)
         # return redirect(url_for("index", result=response.choices[0].text))
 
     result = request.args.get("result")
