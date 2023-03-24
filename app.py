@@ -16,7 +16,7 @@ def index():
             model="text-davinci-003",
             prompt=product, #prompt=generate_prompt(product),
             temperature=0.6,
-            max_tokens=500,
+            max_tokens=4000,
             top_p=1,
             frequency_penalty=1,
             presence_penalty=1

@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
   <title>Product GPT</title>
   <link
     rel="shortcut icon"
-    href="{{ url_for('static', filename='dog.png') }}"
+    href="{{ url_for('static', filename='idea.png') }}"
   />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
+  <img src="{{ url_for('static', filename='idea.png') }}" class="icon" />
   <h3>Product Generator</h3>
   <form action="/" method="post">
-    <input type="text" name="product" placeholder="Enter the market for product ideas" required />
-    <input type="submit" value="Generate ideas" />
+    <div class="textarea-wrapper">
+      <!-- <input type="text" name="product" placeholder="Enter the market for product ideas" required /> -->
+      <!-- <input type="submit" value="Generate ideas" /> -->
+      <textarea id="product" name="product" placeholder="Type the market for generating product ideas" required></textarea>
+      <button type="submit" class="btn btn-success">
+        <i class="fa fa-paper-plane"></i>
+      </button>
+    </div>
   </form>
- 
- <!-- 
+  
+  
+  <div id="typing">
+      <span class="typing-text"></span><span class="typing-cursor"></span>
+  </div>
+
+  <script>
+    var responseText = "{{result}}"; // get the response text from Flask
+
+    var i = 0;
+    var typingInterval = setInterval(function() {
+    var typingDiv = document.getElementById("typing");
+    // typingDiv.innerHTML += responseText.charAt(i); 
+    typingDiv.innerHTML += `<span class="typing-text">${responseText.charAt(i)}</span>`;
+    i++;
+    if (i > responseText.length) {
+    clearInterval(typingInterval);
+  }
+  }, 20);
+
+  </script>
+
+
+<!-- 
   {% if result %} 
       <div class="result">{{ result }}</div>
   {% endif %}
@@ -32,8 +63,5 @@
   </ul>
 </div>
 {% endif %}
-
-
-
 
 </body>
