@@ -24,29 +24,8 @@
       </button>
     </div>
   </form>
-  
-  
-  <div id="typing">
-      <span class="typing-text"></span><span class="typing-cursor"></span>
-  </div>
 
-  <script>
-    var responseText = "{{result}}"; // get the response text from Flask
-
-    var i = 0;
-    var typingInterval = setInterval(function() {
-    var typingDiv = document.getElementById("typing");
-    // typingDiv.innerHTML += responseText.charAt(i); 
-    typingDiv.innerHTML += `<span class="typing-text">${responseText.charAt(i)}</span>`;
-    i++;
-    if (i > responseText.length) {
-    clearInterval(typingInterval);
-  }
-  }, 20);
-
-  </script>
-
-
+    
 <!-- 
   {% if result %} 
       <div class="result">{{ result }}</div>
@@ -63,5 +42,6 @@
   </ul>
 </div>
 {% endif %}
+
 
 </body>
