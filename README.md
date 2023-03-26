@@ -1,6 +1,14 @@
-<p align = "center" draggable=”false” ><img src="images/ideas.png"
-     width="200px"
-     height="auto"/>
+<p align="center">
+  <img src="./static/idea.png" alt="ProductGPT" width="200" height="200">
 </p>
-# productgpt
-Product GPT
+
+
+# Product GPT
+Generates ideas for product managers and entrepreneurs.
+
+## Setup
+If you don’t have Python installed, [install it from here.](https://www.python.org/downloads/) Then download the code by cloning this repository.
+
+```
+git clone 
+```
