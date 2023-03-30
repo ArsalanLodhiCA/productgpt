@@ -43,7 +43,7 @@
   form {
     display: flex;
     flex-direction: column;
-    width: 720px;
+    width: 1020px;
   }
   
  
@@ -71,9 +71,10 @@
     background-color: white;
     font-size: 18px;
     box-shadow: 0px 0px 5px gray;
-    width: 100%; /* added to make the textarea expand to the full width of its container */
+    width: 100%;  /* added to make the textarea expand to the full width of its container */
     box-sizing: border-box; /* added to include padding and border in the width calculation */
     position: relative;
+    
    }
 
   
@@ -85,15 +86,18 @@
   .textarea-wrapper textarea {
     padding-right: 44px; /* Added */
     box-sizing: border-box; /* Added */
+    height: auto;
+    
+
   }
 
 
   /* Style buttons */
 .btn {
-    background-color: teal; /* Blue background */
+    background-color: teal;  /* Blue background */
     border: none; /* Remove borders */
     color: white; /* White text */
-    padding: 12px 16px; /* Some padding */
+    padding: 10px 10px; /* Some padding */
     font-size: 16px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
     
